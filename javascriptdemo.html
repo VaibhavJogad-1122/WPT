@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <style>
+        span {
+            color: red;
+        }
+
+        input {
+            margin: 10px;
+        }
+
+        button {
+            margin: 10px;
+        }
+    </style>
+    <script>
+        function validatedata(numid, errmsg) {
+            var a = document.getElementById(numid).value
+            if (a === "" || isNaN(a)) {
+                document.getElementById(errmsg).innerHTML = "Enter a numeric value."
+                return false
+            }
+            document.getElementById(errmsg).innerHTML = ""
+            return true
+        }
+
+        function validatenumbers() {
+            var flag = validatedata('n1', 'errn1')
+            var flag1 = validatedata('n2', 'errn2')
+            if (flag && flag1) {
+                // alert("Data is valid")
+                substractnumbers()
+            }
+            // else
+            // {
+            // alert("Data is invalid")
+            // }
+        }
+
+        function addnumbers() {
+            var a = parseInt(document.getElementById('n1').value)
+            var b = parseInt(document.getElementById('n2').value)
+            var c = a + b
+            document.getElementById("result").value = c
+            
+        }
+
+        function substractnumbers() {
+            var a = parseInt(document.getElementById('n1').value)
+            var b = parseInt(document.getElementById('n2').value)
+            var c = a - b
+            document.getElementById("result").value = c
+            document.getElementById("mydiv").innerHTML="Substraction:"+c
+        }
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td> Number 1 :</td>
+                <td><input type="text" name="num1" id="n1"><span>*</span><span id="errn1"></span><br>
+                </td>
+            </tr>
+            <tr>
+                <td>Number 2 :</td>
+                <td><input type="text" name="num2" id="n2"><span>*</span><span id="errn2"></span><br>
+                </td>
+            </tr>
+            <tr>
+                <td>Result :</td>
+                <td><input type="text" name="Result" id="result"><br></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="button" name="add" id="add" value="add" onclick="validatenumbers()">Substract</button></td>
+            </tr>
+
+        </table>
+    </form>
+    <div id="mydiv"></div>
+</body>
+
+</html>
